@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title>Manan Shah has started coding for AngularJS</title>
+    <!-- <meta charset="utf-8"> -->
+    <title>Game</title>
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>	
+    <script src="app.js"></script>
+    	
   </head>
-  <body>
-    <h1>AngularJS is better than ReactJS?</h1>
+  <body ng-app="HangMan Game" ng-controller="GameController">
+    <div>
+		Guesses Left :: {{guesses}}
+	</div>
+	<div>
+		<div style="min-width: 40%">
+			Correct Letters :: <span ng-repeat="letter in correctLetterChosen">{{letter}}</span>
+		</div>
+		<div style="min-width: 40%">
+			Incorrect Letters :: <span ng-repeat="letter in incorrectLetterChosen">{{letter}}</span>
+		</div>
+	</div>
+	<div>You have to guess the word :: {{displayWord}}</div>
+	<div>
+		<input type="text" name="guess" ng-model="input.letter" ng-minlength="1" ng-maxlength="1" ng-pattern="/^[A-Za-z]+$/">
+		<button ng-click="letterChosen()">SUBMIT</button>
+	</div>
   </body>
 </html>
